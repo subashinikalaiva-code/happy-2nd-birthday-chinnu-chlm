@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Chinnu</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    margin:0;
+    padding:20px;
+    color:white;
+}
+
+.page{
+    display:none;
+    margin-top:60px;
+}
+
+.active{
+    display:block;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.correct{
+    background:#4CAF50;
+    color:white;
+}
+
+.wrong{
+    background:#f44336;
+    color:white;
+}
+
+.next{
+    background:#2196F3;
+    color:white;
+}
+
+.gift{
+    font-size:100px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Page 1 -->
+<div id="page1" class="page active">
+    <h1>🎉 Welcome 🎉</h1>
+    <h2>Whose Birthday Is Today?</h2>
+
+    <button class="wrong" onclick="wrong()">🦸 Superman</button><br>
+    <button class="correct" onclick="showPage(2)">🎂 Chinnu</button><br>
+    <button class="wrong" onclick="wrong()">😺 Doraemon</button>
+</div>
+
+<!-- Page 2 -->
+<div id="page2" class="page">
+    <h1>🎉 Happy 2nd Birthday Chinnu 🎂</h1>
+    <h2>🥳 Our Little Star Turns Two! 🥳</h2>
+
+    <button class="next" onclick="showPage(3)">Next ➜</button>
+</div>
+
+<!-- Page 3 -->
+<div id="page3" class="page">
+    <h1>❤️ Special Message ❤️</h1>
+
+    <p style="font-size:22px;">
+        Two wonderful years of smiles, laughter and happiness.<br><br>
+        May your life always be filled with love, joy and beautiful memories.<br><br>
+        Happy Birthday Chinnu! 🎂🎈
+    </p>
+
+    <button class="next" onclick="showPage(4)">Next ➜</button>
+</div>
+
+<!-- Page 4 -->
+<div id="page4" class="page">
+    <h1>🎁 Click Your Birthday Gift 🎁</h1>
+
+    <div class="gift" onclick="openGift()">🎁</div>
+
+    <h2 id="giftMessage"></h2>
+</div>
+
+<script>
+function showPage(pageNo){
+    document.querySelectorAll('.page').forEach(p=>{
+        p.classList.remove('active');
+    });
+
+    document.getElementById('page'+pageNo).classList.add('active');
+}
+
+function wrong(){
+    alert("Oops! Try Again 😊");
+}
+
+function openGift(){
+    document.getElementById("giftMessage").innerHTML =
+    "🎉 Surprise! Everyone Loves You Chinnu ❤️🥰🎂";
+}
+</script>
+
+</body>
+</html>
